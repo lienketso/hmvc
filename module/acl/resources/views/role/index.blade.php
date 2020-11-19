@@ -17,7 +17,7 @@
                 </div>
                 <div class="ml-auto">
                     <div class="btn-group">
-                        <a href="#" class="btn btn-primary"><i class="bx bx-comment-add"></i> Thêm mới</a>
+                        <a href="{{route('wadmin::role.create.get')}}" class="btn btn-primary"><i class="bx bx-comment-add"></i> Thêm mới</a>
                     </div>
                 </div>
             </div>
@@ -33,6 +33,8 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
+                        {!! \Base\Supports\FlashMessage::renderMessage('create') !!}
+                        {!! \Base\Supports\FlashMessage::renderMessage('delete') !!}
                         <table class="table mb-0">
                             <thead>
                             <tr>

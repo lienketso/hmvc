@@ -4,6 +4,7 @@
 namespace Base\Supports;
 
 
+
 use Illuminate\Support\Facades\Session;
 
 class FlashMessage
@@ -17,6 +18,7 @@ class FlashMessage
 					</button>
 					</div>';
         }
+        return $html;
     }
 
     public static function returnMessage($mess){

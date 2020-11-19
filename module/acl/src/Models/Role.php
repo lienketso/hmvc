@@ -28,33 +28,6 @@ class Role extends Model
         $this->table = Config::get('acl.roles_table');
     }
 
-    //Big block of caching functionality.
-    public function cachedPermissions()
-    {
-        $rolePrimaryKey = $this->primaryKey;
-        $cacheKey = 'entrust_permissions_for_role_'.$this->$rolePrimaryKey;
-        return Cache::tags(Config::get('acl.permission_role_table'))->remember($cacheKey, Config::get('cache.ttl'), function () {
-            return $this->perms()->get();
-        });
-    }
-    public function save(array $options = [])
-    {   //both inserts and updates
-        $result = parent::save($options);
-        Cache::tags(Config::get('acl.permission_role_table'))->flush();
-        return $result;
-    }
-    public function delete(array $options = [])
-    {   //soft or hard
-        $result = parent::delete($options);
-        Cache::tags(Config::get('acl.permission_role_table'))->flush();
-        return $result;
-    }
-    public function restore()
-    {   //soft delete undo's
-        $result = parent::restore();
-        Cache::tags(Config::get('acl.permission_role_table'))->flush();
-        return $result;
-    }
 
     /**
      * Many-to-Many relations with the user model.

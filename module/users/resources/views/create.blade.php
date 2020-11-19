@@ -101,7 +101,7 @@
                         <label>Trạng thái</label>
                         <select name="status" class="form-control">
                             <option value="active">Kích hoạt</option>
-                            <option value="disable">Tạm khóa</option>
+                            <option value="disabled">Tạm khóa</option>
                         </select>
                     </div>
                     <div class="form-group">

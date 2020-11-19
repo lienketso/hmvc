@@ -49,6 +49,7 @@ class ModuleProvider extends ServiceProvider
         ]);
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/base.php', 'base');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/messages.php', 'messages');
         $this->app->register(RouteProvider::class);
         //Register related facades
         $loader = AliasLoader::getInstance();

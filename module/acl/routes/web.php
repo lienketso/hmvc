@@ -12,7 +12,9 @@ Route::group(['prefix'=>$adminRoute.'/'.$moduleRoute],function(Router $router) u
     });
 
     $router->group(['prefix'=>'role'], function(Router $route) use($adminRoute,$moduleRoute){
-        $route->get('index','RoleController@getIndex')->name('wadmin:role.index.get');
+        $route->get('index','RoleController@getIndex')->name('wadmin::role.index.get');
+        $route->get('create','RoleController@getCreate')->name('wadmin::role.create.get');
+        $route->post('create','RoleController@postCreate')->name('wadmin::role.create.post');
     });
 
 });
