@@ -50,14 +50,6 @@
                            placeholder="ex : thanhan1507@gmail.com">
                 </div>
                 <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control"
-                           name="username"
-                           type="text"
-                           value="{{old('username')}}"
-                           placeholder="ex : lienketso">
-                </div>
-                <div class="form-group">
                     <label>Mật khẩu</label>
                     <input class="form-control" name="password" type="password" placeholder="******">
                 </div>
@@ -106,11 +98,11 @@
                     </div>
                     <div class="form-group">
                         <label>Phân quyền</label>
-                        <select name="permission" class="form-control">
+                        <select name="role" class="form-control">
                             <option value="">---Chọn quyền---</option>
-                            <option value="admin">Admin</option>
-                            <option value="mod">Module</option>
-                            <option value="post">Post bài</option>
+                            @foreach($roles as $r)
+                            <option value="{{$r->id}}">{{$r->display_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group mb-3">

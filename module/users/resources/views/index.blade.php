@@ -41,6 +41,7 @@
                             <th>Họ tên</th>
                             <th>Số điện thoại</th>
                             <th>Trạng thái</th>
+                            <th>Tùy chọn</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,7 +55,10 @@
                             <td>{{$d->email}}</td>
                             <td>{{$d->fullname}}</td>
                             <td>{{$d->phone}}</td>
-                            <td><a href="#" class="btn btn-sm btn-success radius-30">Đã kích hoạt</a>
+                            <td><a href="#" class="btn btn-sm btn-success radius-30">Đã kích hoạt</a></td>
+                            <td>
+                                <a href="{{route('wadmin::users.edit.get',['id'=>$d->id])}}" class="btn btn-outline-warning m-1">Sửa</a>
+                                <a href="#" class="btn btn-outline-danger m-1">Xóa</a>
                             </td>
                         </tr>
                         @endforeach
