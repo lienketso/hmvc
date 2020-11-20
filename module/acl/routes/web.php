@@ -15,6 +15,9 @@ Route::group(['prefix'=>$adminRoute.'/'.$moduleRoute],function(Router $router) u
         $route->get('index','RoleController@getIndex')->name('wadmin::role.index.get');
         $route->get('create','RoleController@getCreate')->name('wadmin::role.create.get');
         $route->post('create','RoleController@postCreate')->name('wadmin::role.create.post');
+        $route->get('edit/{id}','RoleController@getEdit')->name('wadmin::role.edit.get');
+        $route->post('edit/{id}','RoleController@postEdit')->name('wadmin::role.edit.post');
+        $route->get('delete/{id}','RoleController@getDelete')->name('wadmin::role.delete.get');
     });
 
 });

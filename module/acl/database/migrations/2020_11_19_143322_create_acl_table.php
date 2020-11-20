@@ -19,6 +19,7 @@ class CreateAclTable extends Migration
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
+            $table->enum('status',['actice','disabled'])->default('active');
             $table->timestamps();
         });
 
@@ -32,6 +33,7 @@ class CreateAclTable extends Migration
 
         Schema::create('permissions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->id();
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();

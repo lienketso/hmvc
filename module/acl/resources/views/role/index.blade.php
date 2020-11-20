@@ -41,6 +41,7 @@
                                 <th>Vai trò</th>
                                 <th>Tiêu đề</th>
                                 <th>Mô tả</th>
+                                <th>Tùy chọn</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,10 @@
                                     <td>{{$d->name}}</td>
                                     <td>{{$d->display_name}}</td>
                                     <td>{{$d->description}}</td>
+                                    <td>
+                                        <a href="{{route('wadmin::role.edit.get',['id'=>$d->id])}}" class="btn btn-outline-warning m-1">Sửa</a>
+                                        <a href="{{route('wadmin::role.delete.get',['id'=>$d->id])}}" class="btn btn-outline-danger m-1">Xóa</a>
+                                    </td>
                                 </tr>
                             @endforeach
 
