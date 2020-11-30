@@ -58,7 +58,6 @@ class UsersController extends BaseController
     }
 
     public function postEdit($id, UsersEditRequest $request){
-
         try {
             if ($request->get('password') == null) {
                 $data = $request->except(['_token', 'email', 'password', 're_password']);
@@ -66,7 +65,7 @@ class UsersController extends BaseController
                 $data = $request->except(['_token', 'email']);
             }
             $editData = $this->users->update($data,$id);
-            $editData->roles->sync($data['role']);
+            $editData->roles()->sync($data['role']);
             return redirect()->route('wadmin::users.index.get')
                 ->with(FlashMessage::returnMessage('edit'));
         }catch (\Exception $e){
